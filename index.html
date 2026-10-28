@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MoonCoffie: pesan kopi dingin favoritmu, lihat promo, dan tambahkan ke keranjang.">
+  <title>MoonCoffie - Order Coffee</title>
+  <!-- Bootstrap 5.3.8 (file lokal agar jalan offline). Alternatif CDN:
+       https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero" id="home">
+    <nav class="topnav">
+      <a href="#home" class="logo">MoonCoffie</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#promos">Promo</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#new-drink">New Drink</a></li>
+        <li><a href="#order">Order</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-text">
+      <h1><span class="w-order">ORDER</span><span class="w-coffee">COFFEE</span></h1>
+      <p class="welcome">Welcome</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3v3M12 3v3"/><path d="M3 21h14"/></svg>Beli 1 Gratis 1 setiap Jumat</span>
+        <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/><path d="M19 5L5 19"/></svg>Diskon 20% Iced Latte</span>
+        <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Gratis ongkir min. Rp 75.000</span>
+        <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h12v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3v3M12 3v3"/><path d="M3 21h14"/></svg>Beli 1 Gratis 1 setiap Jumat</span>
+        <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/><path d="M19 5L5 19"/></svg>Diskon 20% Iced Latte</span>
+        <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Gratis ongkir min. Rp 75.000</span>
+      </div>
+    </div>
+
+    <section class="slider" id="promos" aria-label="Promo MoonCoffie">
+      <div class="slides" id="slides">
+
+        <article class="slide s1 active">
+          <div class="slide-text">
+            <p class="badge">Promo Hari Ini</p>
+            <h2>Beli 1 <span>Gratis 1</span></h2>
+            <p>Berlaku untuk Iced Espresso Cheese Salty Foam setiap hari Jumat, pukul 15.00 - 17.00.</p>
+            <a href="#menu" class="btn">Pesan Sekarang</a>
+          </div>
+          <div class="slide-art plate" aria-hidden="true">
+            <img class="art" src="assets/images/espressocheese.png" alt="">
+            <span class="bogo-badge">1+1</span>
+            <span class="float deco f1"></span>
+            <span class="float deco f2"></span>
+            <span class="float deco f3"></span>
+          </div>
+        </article>
+
+        <article class="slide s2">
+          <div class="slide-text">
+            <p class="badge">Menu Baru</p>
+            <h2>Iced Latte <span>Diskon 20%</span></h2>
+            <p>Hanya <strong>Rp 32.000</strong> <s>Rp 40.000</s>. Segar, creamy, cocok untuk cuaca panas.</p>
+            <a href="#new-drink" class="btn">Lihat Detail</a>
+          </div>
+          <div class="slide-art plate" aria-hidden="true">
+            <img class="art" src="assets/images/icelatte.png" alt="">
+            <span class="float deco f1"></span>
+            <span class="float deco f2"></span>
+            <span class="float deco f3"></span>
+          </div>
+        </article>
+
+        <article class="slide s3">
+          <div class="slide-text">
+            <p class="badge">Delivery</p>
+            <h2>Gratis <span>Ongkir</span></h2>
+            <p>Untuk pembelian minimal Rp 75.000. Kopi sampai di tempatmu, tetap dingin dan segar.</p>
+            <a href="#menu" class="btn">Mulai Pesan</a>
+          </div>
+          <div class="slide-art" aria-hidden="true">
+            <img class="art" src="assets/images/slide-dilevery.png" alt="">
+            <span class="float deco f1"></span>
+            <span class="float deco f2"></span>
+            <span class="float deco f3"></span>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="slider-arrow prev" id="slidePrev" aria-label="Promo sebelumnya">&#10094;</button>
+      <button class="slider-arrow next" id="slideNext" aria-label="Promo berikutnya">&#10095;</button>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="awning" aria-hidden="true"></div>
+
+      <header class="menu-head">
+        <p class="kicker">MoonCoffie Special</p>
+        <h2>Our Drink<br>Menu</h2>
+      </header>
+
+      <div class="basket-bar">
+        <p class="hint">Klik badge harga untuk menambah pesanan</p>
+        <button class="btn" id="basketBtn">my basket (<span id="cartCount">0</span>)</button>
+      </div>
+
+      <div class="basket" id="basketPanel" hidden>
+        <ul id="basketList"></ul>
+        <p class="total">Total: <strong id="cartTotal">Rp 0</strong>
+          <button class="btn small" id="clearBtn">Kosongkan</button>
+          <a href="#order" class="btn small">Checkout</a></p>
+      </div>
+
+      <div class="menu-grid">
+        <article class="drink-card">
+          <div class="drink-pic">
+            <img src="assets/images/zebralatte.png" alt="Iced Zebra Latte">
+            <button class="buy price-badge" data-name="Iced Zebra Latte" data-price="28000" aria-label="Tambah Iced Zebra Latte ke keranjang"><small>Rp</small>28.000</button>
+          </div>
+          <h3>Iced Zebra Latte</h3>
+        </article>
+        <article class="drink-card">
+          <div class="drink-pic">
+            <img src="assets/images/spicepumkinhoney.png" alt="Iced Pumpkin Spice Honey">
+            <button class="buy price-badge" data-name="Iced Pumpkin Spice Honey" data-price="30000" aria-label="Tambah Iced Pumpkin Spice Honey ke keranjang"><small>Rp</small>30.000</button>
+          </div>
+          <h3>Iced Pumpkin Spice Honey</h3>
+        </article>
+        <article class="drink-card">
+          <div class="drink-pic">
+            <img src="assets/images/matchapumkin.jpg" alt="Iced Matcha Pumpkin">
+            <button class="buy price-badge" data-name="Iced Matcha Pumpkin" data-price="40000" aria-label="Tambah Iced Matcha Pumpkin ke keranjang"><small>Rp</small>40.000</button>
+          </div>
+          <h3>Iced Matcha Pumpkin</h3>
+        </article>
+        <article class="drink-card">
+          <div class="drink-pic">
+            <img src="assets/images/espressocheese.png" alt="Iced Espresso Cheese Salty Foam">
+            <button class="buy price-badge" data-name="Iced Espresso Cheese Salty Foam" data-price="28000" aria-label="Tambah Iced Espresso Cheese Salty Foam ke keranjang"><small>Rp</small>28.000</button>
+          </div>
+          <h3>Iced Espresso Cheese Salty Foam</h3>
+        </article>
+        <article class="drink-card">
+          <div class="drink-pic">
+            <img src="assets/images/latteberry.png" alt="Iced Latte with Rosemaberry">
+            <button class="buy price-badge" data-name="Iced Latte with Rosemaberry" data-price="30000" aria-label="Tambah Iced Latte with Rosemaberry ke keranjang"><small>Rp</small>30.000</button>
+          </div>
+          <h3>Iced Latte with Rosemaberry</h3>
+        </article>
+        <article class="drink-card">
+          <div class="drink-pic">
+            <img src="assets/images/bobaoreo.png" alt="Iced Boba Coffee with Cream Oreo">
+            <button class="buy price-badge" data-name="Iced Boba Coffee with Cream Oreo" data-price="32000" aria-label="Tambah Iced Boba Coffee with Cream Oreo ke keranjang"><small>Rp</small>32.000</button>
+          </div>
+          <h3>Iced Boba Coffee with Cream Oreo</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="promo" id="new-drink">
+      <div class="promo-text">
+        <h2><span class="new">New</span><br><span class="drink">drink</span></h2>
+        <h3>Iced Latte with Frappe</h3>
+        <p>A refreshing coffee drink made with espresso, cold milk, and ice. It has a smooth, light flavor with a hint of frappe, balancing the strength of espresso with the creaminess of milk. Perfect for hot days.</p>
+        <ul class="facts">
+          <li><strong>3</strong> Syrups<br><small>vanilla, caramel, hazelnut</small></li>
+          <li><strong>With</strong><br><small>espresso + cold milk + ice</small></li>
+          <li><strong>20%</strong><br><small>Sale</small></li>
+        </ul>
+      </div>
+
+      <div class="promo-price">
+        <p class="now">Rp 32.000</p>
+        <p class="old">Rp 40.000</p>
+        <button class="btn light" id="promoBtn">Order now</button>
+      </div>
+
+      <div class="promo-img">
+        <img src="assets/images/icelatte.png" alt="Iced Latte">
+      </div>
+    </section>
+
+    <section class="order-section" id="order">
+      <div class="container">
+        <header class="menu-head compact">
+          <p class="kicker">Form Pemesanan</p>
+          <h2>Order Form</h2>
+        </header>
+
+        <form id="orderForm" class="order-form" novalidate>
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <label for="custName" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="custName" name="nama" placeholder="Masukkan nama kamu" required minlength="3">
+              <div class="invalid-feedback">Nama wajib diisi (minimal 3 karakter).</div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="custPhone" class="form-label">No. WhatsApp</label>
+              <input type="tel" class="form-control" id="custPhone" name="telepon" placeholder="08xxxxxxxxxx" required pattern="08[0-9]{8,12}">
+              <div class="invalid-feedback">Masukkan nomor yang valid, diawali 08 (10-14 digit).</div>
+            </div>
+
+            <div class="col-md-6">
+              <p class="form-label mb-2">Tipe Pesanan</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipe" id="tipeDelivery" value="Delivery" required>
+                <label class="form-check-label" for="tipeDelivery">Delivery (diantar ke alamat)</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipe" id="tipeTakeAway" value="Take Away" required>
+                <label class="form-check-label" for="tipeTakeAway">Take Away (ambil di toko)</label>
+                <div class="invalid-feedback">Pilih salah satu tipe pesanan.</div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="payMethod" class="form-label">Metode Pembayaran</label>
+              <select class="form-select" id="payMethod" name="pembayaran" required>
+                <option value="" selected disabled>Pilih metode pembayaran</option>
+                <option value="QRIS">QRIS</option>
+                <option value="Transfer Bank">Transfer Bank</option>
+                <option value="E-Wallet">E-Wallet (GoPay / OVO / DANA)</option>
+                <option value="COD">Bayar di Tempat (COD)</option>
+              </select>
+              <div class="invalid-feedback">Pilih metode pembayaran.</div>
+            </div>
+
+            <div class="col-12">
+              <label for="custAddress" class="form-label">Alamat Lengkap</label>
+              <textarea class="form-control" id="custAddress" name="alamat" rows="3" placeholder="Nama jalan, nomor rumah, RT/RW, kelurahan, kecamatan" required minlength="10"></textarea>
+              <div class="form-text" id="addressHint">Wajib diisi untuk pesanan Delivery.</div>
+              <div class="invalid-feedback">Alamat wajib diisi (minimal 10 karakter).</div>
+            </div>
+
+            <div class="col-12">
+              <div class="order-summary">
+                <h3 class="h6">Ringkasan Pesanan</h3>
+                <ul id="summaryList"></ul>
+                <p>Total: <strong id="summaryTotal">Rp 0</strong></p>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex flex-wrap gap-2">
+              <button type="submit" class="btn">Kirim Pesanan</button>
+              <button type="reset" class="btn light">Reset</button>
+            </div>
+          </div>
+
+          <div class="alert mt-4 mb-0" id="formResult" role="alert" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 <span class="brand-font">MoonCoffie</span>. All rights reserved.</p>
+    <p class="footer-id">NIM: A12.2025.07379 &nbsp;|&nbsp; Nama: Adrikna Mona Izza</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

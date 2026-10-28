@@ -1,0 +1,380 @@
+:root {
+  --brown: #2f3a22;      /* hijau olive tua: teks */
+  --caramel: #b97a83;    /* dusty rose */
+  --maroon: #2f3a22;     /* hijau olive tua: tombol, garis, banner */
+  --cream: #ebe8dc;      /* krem keabu-abuan: papan menu */
+  --beige: #d9d5c5;      /* greige */
+  --pink: #e8c3c8;       /* rose muda */
+  --bg: #e4e1d4;
+  --white: #ffffff;
+  --font: "Vanilla", Constantia, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-bold: "Vanilla", Constantia, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-logo: "Cloud Nine", "Cooper Black", "Berlin Sans FB Demi", "Arial Rounded MT Bold", "Arial Black", sans-serif;
+}
+
+/* Font Vanilla (opsional): taruh file font di assets/fonts/ */
+@font-face {
+  font-family: "Vanilla";
+  src: local("Vanilla"),
+       url("assets/fonts/Vanilla.woff2") format("woff2"),
+       url("assets/fonts/Vanilla.ttf") format("truetype"),
+       url("assets/fonts/Vanilla.otf") format("opentype");
+  font-display: swap;
+}
+
+/* Font Cloud Nine (opsional): taruh file font di assets/fonts/ */
+@font-face {
+  font-family: "Cloud Nine";
+  src: local("Cloud Nine"), local("CloudNine"),
+       url("assets/fonts/CloudNine.woff2") format("woff2"),
+       url("assets/fonts/CloudNine.ttf") format("truetype"),
+       url("assets/fonts/CloudNine.otf") format("opentype");
+  font-display: swap;
+}
+
+/* spesifisitas dinaikkan supaya reset tidak kalah oleh reboot Bootstrap */
+html body *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: var(--font); color: var(--brown); background: linear-gradient(var(--bg), var(--beige)) fixed; line-height: 1.4; }
+button { font-family: inherit; }
+img { max-width: 100%; display: block; }
+a, a:hover { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  aspect-ratio: 1090 / 598;
+  max-height: 760px;
+  background-color: #bdb8a4;
+  background-image: url("assets/images/hero.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  color: var(--white);
+  overflow: hidden;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 110px;
+  background: linear-gradient(rgba(30, 38, 20, .5), transparent);
+  pointer-events: none;
+}
+
+.topnav {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 5%;
+}
+.logo { font-family: var(--font-bold); font-size: 1.4rem; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a:hover { color: var(--pink); }
+.nav-toggle {
+  display: none;
+  background: none; border: none;
+  color: var(--white); font-size: 1.8rem; cursor: pointer;
+}
+
+/* ORDER di kiri cangkir, COFFEE di kanan, Welcome di bawah COFFEE */
+.hero-text {
+  position: absolute; inset: 0; z-index: 2;
+  display: grid;
+  grid-template-columns: 28.1fr 24.8fr 33.1fr;
+  grid-template-areas:
+    "order . coffee"
+    ".     . welcome";
+  align-content: start;
+  padding: 27% 2.5% 0 11.5%;
+}
+.hero-text h1 { display: contents; }
+.w-order, .w-coffee {
+  font-family: var(--font-bold);
+  font-size: 7vw; line-height: 1; letter-spacing: .04em; font-weight: 700;
+  text-shadow: 0 2px 12px rgba(30, 38, 20, .3);
+}
+.w-order { grid-area: order; justify-self: end; animation: fromLeft 1s ease both; }
+.w-coffee { grid-area: coffee; justify-self: start; animation: fromRight 1s ease both; }
+.welcome {
+  grid-area: welcome; justify-self: end;
+  font: italic 2.6vw/1.2 var(--font);
+  animation: fadeUp 1s .5s ease both;
+}
+@keyframes fromLeft { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: none; } }
+@keyframes fromRight { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: none; } }
+
+/* ===== MENU ===== */
+.menu { padding: 0 5% 70px; max-width: 1100px; margin: 50px auto 0; }
+
+.awning {
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40'%3E%3Cpath d='M0 0H60V10A30 30 0 0 1 0 10Z' fill='%232f3a22'/%3E%3Cpath d='M60 0H120V10A30 30 0 0 1 60 10Z' fill='%23e8c3c8'/%3E%3C/svg%3E") repeat-x;
+}
+
+.menu-head { text-align: center; padding: 50px 0 20px; }
+.kicker { color: var(--caramel); font-weight: 700; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 8px; }
+.menu-head h2 {
+  font-family: var(--font-bold); font-weight: 700;
+  font-size: clamp(2.6rem, 9vw, 5.5rem); line-height: 1; text-transform: uppercase;
+}
+
+.btn {
+  background: var(--maroon); color: var(--white);
+  border: none; border-radius: 30px;
+  padding: 10px 26px; font-weight: bold; cursor: pointer;
+}
+.btn:hover { background: var(--caramel); color: var(--white); }
+.btn.small { padding: 5px 12px; font-size: .8rem; margin-left: 12px; }
+.btn.light { background: var(--white); color: var(--brown); }
+.btn.light:hover { background: var(--caramel); color: var(--white); }
+
+.basket-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; margin: 10px 0 16px;
+}
+.hint { font-size: .9rem; color: var(--caramel); font-weight: 700; }
+.basket { background: var(--cream); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+.basket li { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
+.basket li button { background: none; border: none; color: var(--caramel); cursor: pointer; font-weight: bold; }
+.total { margin-top: 10px; text-align: right; }
+
+.menu-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 60px 30px; margin-top: 30px;
+}
+.drink-card { text-align: center; }
+.drink-pic {
+  position: relative; width: 72%; margin: 0 auto;
+  aspect-ratio: 3 / 4; display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 14px;
+}
+.drink-pic::after {            /* alas elips di bawah gelas */
+  content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 85%; height: 22px; border-radius: 50%; background: var(--caramel);
+}
+.drink-pic img {
+  position: relative; z-index: 1;
+  height: 100%; max-width: 100%; object-fit: contain;
+  mix-blend-mode: multiply;    /* latar putih gambar jadi menyatu */
+}
+.price-badge {
+  position: absolute; z-index: 2; right: -14%; top: 42%;
+  width: 70px; height: 70px; border-radius: 50%; border: none;
+  background: var(--caramel); color: var(--white);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: .82rem; font-weight: 700; line-height: 1.1; cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+.price-badge small { font-size: .6rem; font-weight: 400; }
+.price-badge:hover { transform: scale(1.12); background: var(--maroon); }
+.buy.added { background: var(--maroon); transform: scale(1.12); }
+
+.drink-card h3 {
+  margin: 20px auto 0; max-width: 230px;
+  font-size: 1.1rem; line-height: 1.25; color: var(--maroon);
+}
+
+/* ===== PROMO ===== */
+.promo {
+  background: var(--pink);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 5%;
+}
+.new { font-family: var(--font-bold); font-size: 4rem; color: var(--white); }
+.drink { font-family: var(--font-bold); font-size: 4.5rem; }
+.promo-text h3 { font-size: 1.8rem; margin: 16px 0 8px; }
+.promo-text p { font-size: .85rem; max-width: 380px; }
+.facts { display: flex; gap: 30px; margin-top: 24px; }
+.facts strong { font-size: 1.5rem; }
+.facts small { color: var(--caramel); }
+
+.promo-price { text-align: center; }
+.now { font-family: var(--font-bold); font-size: 2.4rem; font-weight: 700; }
+.old { text-decoration: line-through; color: var(--caramel); margin-bottom: 16px; }
+
+.promo-img { background: rgba(255, 255, 255, .4); min-height: 280px; display: flex; align-items: center; justify-content: center; }
+.promo-img img { max-height: 380px; object-fit: contain; }
+
+.footer { background: var(--brown); color: var(--white); text-align: center; padding: 20px; font-size: .85rem; }
+
+/* ===== PROMO SLIDER & ANIMASI ===== */
+.marquee { background: var(--maroon); color: var(--white); overflow: hidden; padding: 10px 0; }
+.marquee-track { display: flex; gap: 60px; width: max-content; animation: marquee 22s linear infinite; }
+.marquee-track span {
+  display: inline-flex; align-items: center; gap: 10px;
+  white-space: nowrap; font-weight: bold; letter-spacing: 1px;
+}
+.mi {
+  width: 22px; height: 22px; flex-shrink: 0;
+  fill: none; stroke: var(--pink); stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.slider { position: relative; max-width: 1100px; margin: 40px auto 0; padding: 0 5%; }
+.slides { display: grid; border-radius: 18px; overflow: hidden; }
+.slide {
+  grid-area: 1 / 1;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  min-height: 320px; padding: 40px 70px;
+  opacity: 0; visibility: hidden; transform: translateX(40px);
+  transition: opacity .6s ease, transform .6s ease, visibility .6s;
+}
+.slide.active { opacity: 1; visibility: visible; transform: none; }
+.s1 { background: linear-gradient(120deg, #e8c3c8, #d29ea6); }
+.s2 { background: linear-gradient(120deg, #d9d5c5, #ebe8dc); }
+.s3 { background: linear-gradient(120deg, #c9cdb3, #a9b08f); }
+
+.slide-text { flex: 1; }
+.badge {
+  display: inline-block; background: var(--maroon); color: var(--white);
+  padding: 4px 14px; border-radius: 20px; font-size: .8rem; margin-bottom: 12px;
+}
+.slide h2 { font-family: var(--font-bold); font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.1; margin-bottom: 12px; }
+.slide h2 span { display: block; color: var(--maroon); }
+.slide p { max-width: 420px; margin-bottom: 18px; }
+
+.slide-art { flex: 1; position: relative; height: 240px; display: flex; align-items: center; justify-content: center; }
+.float { position: absolute; font-size: 2rem; animation: floaty 2.6s ease-in-out infinite; }
+.f1 { top: 10%; left: 18%; animation-delay: .3s; }
+.f2 { top: 20%; right: 15%; animation-delay: .9s; }
+.f3 { bottom: 8%; left: 30%; animation-delay: 1.4s; }
+.art {
+  position: relative; z-index: 1;
+  max-height: 260px; max-width: 100%; width: auto; object-fit: contain;
+  mix-blend-mode: multiply;
+  animation: floaty 3s ease-in-out infinite;
+}
+.slide-art.plate::after {       /* alas elips di bawah gelas */
+  content: ""; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
+  width: 55%; height: 18px; border-radius: 50%; background: var(--caramel); opacity: .85;
+}
+.float.deco { font-size: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--caramel); opacity: .7; }
+.float.deco.f2 { width: 11px; height: 11px; background: var(--maroon); }
+.float.deco.f3 { width: 24px; height: 24px; background: var(--white); opacity: .85; }
+.bogo-badge {
+  position: absolute; z-index: 2; top: 4%; right: 10%;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--caramel); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.3rem;
+  animation: floaty 2.6s ease-in-out infinite;
+}
+@keyframes floaty { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-16px) rotate(3deg); } }
+
+.slider-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%; border: none;
+  background: rgba(255, 255, 255, .85); color: var(--maroon);
+  font-size: 1.1rem; cursor: pointer; z-index: 2;
+}
+.slider-arrow:hover { background: var(--maroon); color: var(--white); }
+.slider-arrow.prev { left: calc(5% + 12px); }
+.slider-arrow.next { right: calc(5% + 12px); }
+
+.dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; border: none; background: var(--beige); cursor: pointer; transition: width .3s, background .3s; }
+.dot.active { width: 28px; border-radius: 6px; background: var(--maroon); }
+
+/* animasi masuk hero & scroll reveal */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.show { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 600px) {
+  .slide { flex-direction: column-reverse; padding: 30px 20px 50px; text-align: center; min-height: 440px; }
+  .slide p { margin-left: auto; margin-right: auto; }
+  .slide-art { height: 160px; width: 100%; }
+  .art { max-height: 150px; }
+  .slider-arrow { top: 30%; width: 34px; height: 34px; }
+}
+
+/* ===== FORM PEMESANAN (Bootstrap + tema MoonCoffie) ===== */
+.order-section { padding: 30px 0 80px; }
+.order-section .container { max-width: 820px; }
+.menu-head.compact h2 { font-size: clamp(2rem, 6vw, 3.2rem); }
+
+.order-form {
+  background: var(--cream); border: 1px solid var(--beige); border-radius: 18px;
+  padding: 32px; box-shadow: 0 10px 30px rgba(47, 58, 34, .1);
+}
+.order-form .form-label { font-weight: 700; color: var(--maroon); }
+.order-form .form-control, .order-form .form-select { border-color: #b9b5a3; background-color: var(--white); }
+.order-form .form-control:focus, .order-form .form-select:focus,
+.order-form .form-check-input:focus {
+  border-color: var(--caramel); box-shadow: 0 0 0 .25rem rgba(185, 122, 131, .25);
+}
+.order-form .form-check-input:checked { background-color: var(--maroon); border-color: var(--maroon); }
+.order-form .btn.light { border: 1px solid var(--maroon); }
+.order-form .btn.light:hover { border-color: var(--caramel); }
+
+.order-summary { background: var(--white); border: 1px dashed var(--maroon); border-radius: 10px; padding: 14px 16px; }
+.order-summary h3 { margin-bottom: 8px; color: var(--maroon); font-weight: 700; }
+.order-summary li { padding: 2px 0; }
+.order-summary p { margin-top: 8px; text-align: right; }
+
+.alert { --bs-alert-padding-y: .9rem; --bs-alert-padding-x: 1rem; }
+.alert.alert-success { --bs-alert-color: var(--maroon); --bs-alert-bg: #dfe5cf; --bs-alert-border-color: #b9c29d; }
+
+.footer p + p { margin-top: 6px; }
+.footer-id { font-size: .9rem; opacity: .85; }
+
+@media (max-width: 600px) {
+  .order-form { padding: 20px; }
+}
+
+/* ===== RESPONSIF ===== */
+@media (max-width: 900px) {
+  .promo { grid-template-columns: 1fr; text-align: center; }
+  .promo-text p { margin: 0 auto; }
+  .facts { justify-content: center; flex-wrap: wrap; }
+}
+
+@media (max-width: 600px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none; flex-direction: column; gap: 0;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--brown); z-index: 10;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { display: block; padding: 14px 5%; }
+
+  .hero { aspect-ratio: auto; height: 460px; background-position: 51% top; }
+  .hero::after {
+    content: ""; position: absolute; inset: 40% 0 0 0;
+    background: linear-gradient(transparent, rgba(30, 38, 20, .75));
+  }
+  .hero-text {
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    padding: 0 5% 28px; text-align: center;
+  }
+  .w-order, .w-coffee { font-size: 2.6rem; justify-self: auto; }
+  .welcome { font-size: 1.5rem; justify-self: auto; }
+
+  .basket-bar { flex-direction: column; align-items: flex-start; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 44px 10px; }
+  .drink-pic { width: 76%; }
+  .price-badge { width: 56px; height: 56px; font-size: .7rem; right: -18%; }
+  .drink-card h3 { font-size: .9rem; }
+  .new { font-size: 3rem; }
+  .drink { font-size: 3.2rem; }
+}
+
+/* ===== FONT LOGO MoonCoffie (gaya bubble Cloud Nine) ===== */
+.logo, .brand, .brand-font {
+  font-family: var(--font-logo);
+  font-weight: 400;
+  letter-spacing: .02em;
+  text-transform: none;
+  -webkit-text-stroke: 1.5px currentColor;
+}
+.logo { font-size: 1.9rem; text-shadow: 0 2px 8px rgba(30, 38, 20, .35); }
+.brand { font-size: 1.5rem; letter-spacing: .02em; }
